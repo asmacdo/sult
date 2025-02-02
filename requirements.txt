@@ -1,0 +1,6 @@
+torch
+transformers
+accelerate
+chromadb  # or faiss-cpu
+sentence-transformers
+

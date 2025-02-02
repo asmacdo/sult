@@ -1,0 +1,38 @@
+# config.yaml - Configuration for document embedding and storage
+
+# ----------------------------------------------------------------------------
+# Directories to process
+# ----------------------------------------------------------------------------
+repository_ingestion:
+  repositories:
+    - path: "/home/austin/devel/versations-archive"
+      # TODO include_extensions: [".txt", ".md", ".py", ".ipynb"]  # File types to process
+      # TODO better: exclude_patterns: ["*.log", "*.tmp", ".git"]
+      exclude_dirs: [".git"]
+      include_dirs: ["CON-internal"]
+
+# ----------------------------------------------------------------------------
+# Processing Parameters
+# ----------------------------------------------------------------------------
+embedder_model_path : "sentence-transformers/all-MiniLM-L6-v2"
+llm:
+  model_path: "models/Llama-3.1-8B-Instruct"
+  system_prompt: "You are a pithy, helpful assistant"
+  assistant_prompt: "Assistant:"
+
+processing:
+  chunk_size: 500
+  overlap: 50
+  # encoding: "utf-8"  # TODO: Specify text encoding
+  # max_file_size_mb: 50  # TODO : Skip files larger than this limit
+
+# ----------------------------------------------------------------------------
+# ChromaDB Settings
+# ----------------------------------------------------------------------------
+chroma:
+  collection_name: "repo_notes"
+  persist_directory: "./chroma_db"
+  embedding_dim: 384
+  index_type: "HNSW"
+  top_k: 3  # Number of chunks to retrieve from Chroma
+
