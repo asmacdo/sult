@@ -60,7 +60,6 @@ def ingest_path(embedder, collection, file_path, chunk_count):
         embedding = embedder.encode(chunk).tolist()  # convert np.array -> list
         chunk_id = f"{file_path}-{i}"  # unique ID
         metadata = {"source_file": file_path}
-
         collection.add(
             documents=[chunk],
             embeddings=[embedding],
@@ -84,8 +83,8 @@ def main():
             ingest_path(embedder, collection, file_path, chunk_count)
 
     print(f"[INFO] Processed {file_count} files.")
-    print(f"[INFO] Added {chunk_count} chunks to collection '{CHROMA_COLLECTION}'.")
-    print(f"[INFO] Chroma DB persisted at: {CHROMA_PERSIST_DIR}")
+    print(f"[INFO] Added {chunk_count} chunks to collection {config.chroma['collection_name']}.")
+    print(f"[INFO] Chroma DB persisted at: {config.chroma['persist_directory']}")
 
 
 if __name__ == "__main__":
