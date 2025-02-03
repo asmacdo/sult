@@ -13,7 +13,7 @@ ingest_repositories:
 # ----------------------------------------------------------------------------
 # Processing Parameters
 # ----------------------------------------------------------------------------
-embedder_model_path : "sentence-transformers/all-MiniLM-L6-v2"
+embedder_model: "sentence-transformers/all-MiniLM-L6-v2"
 llm:
   model_path: "models/Llama-3.1-8B-Instruct"
   system_prompt: "You are a pithy, helpful assistant"

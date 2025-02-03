@@ -73,7 +73,7 @@ def ingest_path(embedder, collection, file_path, chunk_count):
 def main():
     client = chromadb.PersistentClient(path=config.chroma_persist_directory)
     collection = client.get_or_create_collection(name=config.chroma_collection_name)
-    embedder = SentenceTransformer(config.embedder_model_path)
+    embedder = SentenceTransformer(config.embedder_model)
 
     file_count = 0
     chunk_count = 0
