@@ -1,6 +1,6 @@
+PyYaml
 torch
 transformers
 accelerate
-chromadb  # or faiss-cpu
+chromadb
 sentence-transformers
-
