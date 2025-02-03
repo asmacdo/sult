@@ -10,7 +10,7 @@ _cfg = load_config()
 
 # Extract sections for convenience.
 ingest_repositories = _cfg.get("ingest_repositories", [])
-embedder_model_path = _cfg.get("embedder_model_path")
+embedder_model = _cfg.get("embedder_model")
 llm = _cfg.get("llm", {})
 processing = _cfg.get("processing", {})
 chroma = _cfg.get("chroma", {})
